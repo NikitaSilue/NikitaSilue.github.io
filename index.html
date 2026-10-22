@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="description"
-          content="Portfolio de Nikita Silue, étudiante en informatique au Cégep de Trois-Rivières. Projets Web, Python et Unity.">
+          content="Portfolio de Nikita Silue, étudiante en informatique au Cégep de Trois-Rivières.">
+
     <title>Nikita Silue | Portfolio</title>
 
     <style>
@@ -24,7 +26,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 110px;
+            scroll-padding-top: 120px;
         }
 
         body {
@@ -40,9 +42,14 @@
             text-underline-offset: 4px;
         }
 
-        a:focus-visible {
+        a:focus-visible,
+        button:focus-visible {
             outline: 3px solid var(--rose);
             outline-offset: 5px;
+        }
+
+        button {
+            font: inherit;
         }
 
         .container {
@@ -95,20 +102,8 @@
             text-decoration: underline;
         }
 
-        .hero {
-            display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            align-items: center;
-            gap: 60px;
-            padding-block: 100px;
-        }
-
-        .eyebrow {
-            color: var(--rose);
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            font-size: 0.75rem;
-            font-weight: bold;
+        section {
+            padding-block: 65px;
         }
 
         h1,
@@ -133,17 +128,47 @@
             color: var(--rose);
         }
 
-        .intro {
-            max-width: 520px;
+        h2 {
+            margin: 10px 0 20px;
+            font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: -0.03em;
+        }
+
+        p {
             color: var(--muted);
+        }
+
+        .eyebrow {
+            color: var(--rose);
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            align-items: center;
+            gap: 60px;
+            padding-block: 90px;
+        }
+
+        .intro {
+            max-width: 560px;
             font-size: 1.05rem;
+        }
+
+        .location {
+            font-size: 0.9rem;
         }
 
         .buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 14px;
-            margin-top: 30px;
+            align-items: center;
+            gap: 12px;
+            margin-top: 25px;
         }
 
         .button {
@@ -156,6 +181,7 @@
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: bold;
+            cursor: pointer;
             transition: transform 0.2s;
         }
 
@@ -172,7 +198,11 @@
             padding: 55px 25px;
             border: 1px solid #dfc7c3;
             border-radius: 150px 150px 24px 24px;
-            background: linear-gradient(145deg, var(--beige), var(--pink));
+            background: linear-gradient(
+                145deg,
+                var(--beige),
+                var(--pink)
+            );
             text-align: center;
         }
 
@@ -197,27 +227,7 @@
 
         .identity-card p {
             margin-bottom: 0;
-            color: var(--muted);
             font-size: 0.9rem;
-        }
-
-        section {
-            padding-block: 65px;
-        }
-
-        .section-heading {
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            margin: 10px 0 16px;
-            font-size: clamp(2rem, 4vw, 3rem);
-            letter-spacing: -0.03em;
-        }
-
-        .section-heading p {
-            max-width: 620px;
-            color: var(--muted);
         }
 
         .about {
@@ -229,13 +239,12 @@
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 45px;
             align-items: start;
         }
 
-        .about-content p {
+        .about-content p:first-child {
             margin-top: 0;
-            color: var(--muted);
         }
 
         .note {
@@ -247,11 +256,16 @@
 
         .note strong {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
-        .note p {
+        .note p:last-child {
             margin-bottom: 0;
+        }
+
+        .section-heading {
+            max-width: 680px;
+            margin-bottom: 30px;
         }
 
         .grid {
@@ -273,7 +287,6 @@
         }
 
         .card p {
-            color: var(--muted);
             font-size: 0.95rem;
         }
 
@@ -282,7 +295,7 @@
             flex-wrap: wrap;
             gap: 8px;
             padding: 0;
-            margin: 18px 0 0;
+            margin: 20px 0;
             list-style: none;
         }
 
@@ -294,8 +307,10 @@
             font-size: 0.78rem;
         }
 
-        .projects {
-            padding-top: 20px;
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            border-top: 3px solid var(--pink);
         }
 
         .project-number {
@@ -308,7 +323,7 @@
 
         .project-type {
             color: var(--rose);
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             letter-spacing: 0.08em;
             text-transform: uppercase;
         }
@@ -317,25 +332,147 @@
             margin-top: 12px;
         }
 
-        .project-card {
-            border-top: 3px solid var(--pink);
+        .project-card .button {
+            align-self: flex-start;
+            margin-top: auto;
         }
 
         .contact-box {
-            padding: 55px 25px;
+            padding: 45px;
             background: var(--beige);
             border-radius: 24px;
-            text-align: center;
         }
 
-        .contact-box p {
-            max-width: 550px;
-            margin-inline: auto;
+        .contact-intro {
+            max-width: 680px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            padding: 22px;
+            background: var(--cream);
+            border-radius: 16px;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--rose);
+            font-size: 0.75rem;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .contact-item p {
+            margin: 0;
+        }
+
+        .pending {
+            display: inline-block;
+            padding: 9px 14px;
+            border: 1px dashed #b49594;
+            border-radius: 24px;
             color: var(--muted);
+            font-size: 0.8rem;
         }
 
-        .contact-box .buttons {
-            justify-content: center;
+        .preview-note {
+            margin-top: 25px;
+            padding: 14px 18px;
+            background: var(--white);
+            border: 1px dashed #b49594;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        /* Fenêtres présentant les projets */
+
+        dialog {
+            width: min(860px, 94%);
+            max-height: 88vh;
+            padding: 0;
+            border: 1px solid var(--beige);
+            border-radius: 24px;
+            background: var(--cream);
+            color: var(--brown);
+        }
+
+        dialog::backdrop {
+            background: rgba(53, 43, 43, 0.6);
+        }
+
+        .dialog-content {
+            padding: 35px;
+        }
+
+        .dialog-top {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .close-button {
+            padding: 8px 16px;
+            border: 1px solid #d5bdb9;
+            border-radius: 25px;
+            background: var(--white);
+            color: var(--brown);
+            cursor: pointer;
+        }
+
+        .dialog-content h2 {
+            margin-top: 15px;
+            font-size: clamp(2rem, 5vw, 2.7rem);
+        }
+
+        .dialog-content h3 {
+            margin-top: 30px;
+        }
+
+        .project-meta {
+            font-size: 0.85rem;
+        }
+
+        .screenshots {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .image-placeholder {
+            display: grid;
+            place-items: center;
+            min-height: 170px;
+            padding: 25px;
+            border: 1px dashed #b49594;
+            border-radius: 16px;
+            background: var(--beige);
+            color: var(--muted);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .project-list {
+            padding-left: 22px;
+        }
+
+        .project-list li {
+            margin-bottom: 10px;
+        }
+
+        .result-box {
+            padding: 20px;
+            background: var(--white);
+            border-left: 3px solid var(--rose);
+            border-radius: 0 14px 14px 0;
         }
 
         footer {
@@ -347,24 +484,21 @@
         }
 
         @media (max-width: 800px) {
-            .hero {
+            .hero,
+            .about-content,
+            .grid,
+            .contact-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .hero {
                 gap: 40px;
-                padding-block: 60px;
+                padding-block: 55px;
             }
 
             .identity-card {
                 width: min(350px, 100%);
                 margin-inline: auto;
-            }
-
-            .grid,
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .about-content {
-                gap: 20px;
             }
 
             nav {
@@ -380,6 +514,15 @@
 
             section {
                 padding-block: 45px;
+            }
+
+            .contact-box,
+            .dialog-content {
+                padding: 25px;
+            }
+
+            .screenshots {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -402,7 +545,9 @@
 <body>
     <header>
         <nav class="container" aria-label="Navigation principale">
-            <a class="logo" href="#accueil">Nikita<span>.</span></a>
+            <a class="logo" href="#accueil">
+                Nikita<span>.</span>
+            </a>
 
             <div class="nav-links">
                 <a href="#apropos">À propos</a>
@@ -414,63 +559,104 @@
     </header>
 
     <main>
+        <!-- ACCUEIL -->
+
         <div class="container">
-            <section class="hero" id="accueil" aria-labelledby="titre-accueil">
+            <section class="hero" id="accueil">
                 <div>
                     <p class="eyebrow">Portfolio · Informatique</p>
-                    <h1 id="titre-accueil">
+
+                    <h1>
                         Bonjour,<br>
                         moi c’est <span>Nikita.</span>
                     </h1>
 
                     <p class="intro">
                         Étudiante en informatique au Cégep de Trois-Rivières,
-                        je développe mes compétences à travers des projets
-                        Web, des analyses de données et des expériences interactives.
+                        je développe mes compétences à travers des applications
+                        Web, l’analyse de données et des expériences interactives.
+                    </p>
+
+                    <p>
+                        Je recherche un stage pour contribuer à des projets
+                        concrets et apprendre auprès d’une équipe.
+                    </p>
+
+                    <p class="location">
+                        <strong>Trois-Rivières, Québec</strong><br>
+                        Disponibilité : [période du stage à préciser]
                     </p>
 
                     <div class="buttons">
-                        <a class="button" href="#projets">Découvrir mes projets</a>
-                        <a class="button secondary" href="#contact">Me contacter</a>
+                        <a class="button" href="#projets">
+                            Découvrir mes projets
+                        </a>
+
+                        <a class="button secondary" href="#contact">
+                            Me contacter
+                        </a>
                     </div>
                 </div>
 
                 <div class="identity-card">
                     <div class="monogram" aria-hidden="true">NS</div>
+
                     <strong>Nikita Silue</strong>
-                    <p>Étudiante en informatique<br>Trois-Rivières, Québec</p>
+
+                    <p>
+                        Étudiante en informatique<br>
+                        Développement · Données · Création
+                    </p>
                 </div>
             </section>
         </div>
 
-        <section class="about" id="apropos" aria-labelledby="titre-apropos">
+        <!-- À PROPOS -->
+
+        <section class="about" id="apropos">
             <div class="container">
                 <div class="section-heading">
                     <p class="eyebrow">Un peu de mon parcours</p>
-                    <h2 id="titre-apropos">À propos de moi</h2>
+                    <h2>À propos de moi</h2>
                 </div>
 
                 <div class="about-content">
                     <div>
                         <p>
                             Je poursuis un DEC en informatique au Cégep
-                            de Trois-Rivières. Mes projets scolaires me permettent
-                            de pratiquer la programmation, les bases de données
-                            et le travail en équipe.
+                            de Trois-Rivières. Ma formation me permet de
+                            pratiquer la programmation, les bases de données
+                            et la conception d’applications.
                         </p>
+
                         <p>
-                            Je m’intéresse notamment aux interfaces Web,
-                            à l’analyse de données et à l’intelligence artificielle.
-                            Ce portfolio présente une sélection de mes réalisations.
+                            Je m’intéresse aux interfaces Web, à l’analyse
+                            de données et à l’intelligence artificielle.
+                            Mes projets m’apprennent à transformer un besoin
+                            en solution et à résoudre des problèmes techniques.
+                        </p>
+
+                        <p>
+                            Le travail en équipe m’amène également à partager
+                            mes idées, à intégrer mes modifications et à
+                            participer à l’évolution d’un projet commun.
                         </p>
                     </div>
 
                     <div class="note">
                         <strong>Mon prochain objectif</strong>
+
                         <p>
-                            Trouver un stage en informatique pour contribuer
-                            à des projets concrets, apprendre auprès d’une équipe
-                            et approfondir mes compétences.
+                            Trouver un stage en informatique pour mettre
+                            mes connaissances en pratique et approfondir
+                            mes compétences dans un environnement professionnel.
+                        </p>
+
+                        <strong>Disponibilité et mobilité</strong>
+
+                        <p>
+                            [Dates de début et de fin du stage]<br>
+                            [Villes et modalités de travail souhaitées]
                         </p>
                     </div>
                 </div>
@@ -478,10 +664,13 @@
         </section>
 
         <div class="container">
-            <section id="competences" aria-labelledby="titre-competences">
+            <!-- COMPÉTENCES -->
+
+            <section id="competences">
                 <div class="section-heading">
                     <p class="eyebrow">Mes outils</p>
-                    <h2 id="titre-competences">Compétences en pratique</h2>
+                    <h2>Compétences en pratique</h2>
+
                     <p>
                         Des technologies utilisées au fil de ma formation
                         et de mes projets.
@@ -491,11 +680,13 @@
                 <div class="grid">
                     <article class="card">
                         <h3>Développement Web</h3>
+
                         <p>
-                            Création de pages Web et participation au
-                            développement d’applications.
+                            Création d’interfaces, de formulaires et
+                            d’applications reliées à une base de données.
                         </p>
-                        <ul class="tags" aria-label="Technologies Web">
+
+                        <ul class="tags">
                             <li>HTML / CSS</li>
                             <li>Blazor</li>
                             <li>C# / .NET</li>
@@ -505,11 +696,13 @@
 
                     <article class="card">
                         <h3>Données et IA</h3>
+
                         <p>
-                            Manipulation de données et expérimentation
-                            avec des modèles de classification.
+                            Préparation des données, expérimentation avec
+                            des modèles et comparaison des performances.
                         </p>
-                        <ul class="tags" aria-label="Technologies de données">
+
+                        <ul class="tags">
                             <li>Python</li>
                             <li>SQL</li>
                             <li>MySQL</li>
@@ -519,11 +712,13 @@
 
                     <article class="card">
                         <h3>Outils et collaboration</h3>
+
                         <p>
-                            Gestion du code, travail en équipe et
-                            création d’expériences interactives.
+                            Gestion du code et réalisation de projets
+                            en équipe dans un contexte scolaire.
                         </p>
-                        <ul class="tags" aria-label="Outils de travail">
+
+                        <ul class="tags">
                             <li>Git / GitHub</li>
                             <li>VS Code</li>
                             <li>Unity</li>
@@ -533,93 +728,225 @@
                 </div>
             </section>
 
-            <section class="projects" id="projets" aria-labelledby="titre-projets">
+            <!-- PROJETS -->
+
+            <section id="projets">
                 <div class="section-heading">
-                    <p class="eyebrow">Une sélection de réalisations</p>
-                    <h2 id="titre-projets">Mes projets</h2>
+                    <p class="eyebrow">Du besoin à la réalisation</p>
+                    <h2>Mes projets en détail</h2>
+
                     <p>
-                        Trois projets issus de ma formation,
-                        entre développement Web, données et création interactive.
+                        Découvrez le contexte de mes projets, les fonctionnalités
+                        développées et mes contributions personnelles.
                     </p>
                 </div>
 
                 <div class="grid">
                     <article class="card project-card">
                         <span class="project-number" aria-hidden="true">01</span>
-                        <span class="project-type">Application Web · Équipe</span>
+
+                        <span class="project-type">
+                            Application Web · Projet en équipe
+                        </span>
+
                         <h3>ProjetCitoyens</h3>
+
                         <p>
-                            Une application permettant de consulter des activités
-                            citoyennes et de gérer les inscriptions.
+                            Une application permettant de consulter des
+                            activités citoyennes et de gérer les inscriptions.
                         </p>
+
                         <p>
                             <strong>Ma contribution :</strong>
-                            conception et amélioration des interfaces,
-                            notamment l’accueil et les pages d’administration.
+                            amélioration des interfaces, adaptation mobile
+                            et présentation des pages d’administration.
                         </p>
-                        <ul class="tags" aria-label="Technologies de ProjetCitoyens">
+
+                        <ul class="tags">
                             <li>Blazor</li>
                             <li>C#</li>
                             <li>MySQL</li>
                             <li>CSS</li>
                         </ul>
+
+                        <button
+                            class="button"
+                            type="button"
+                            data-open="projet-citoyens">
+                            Découvrir le projet ↗
+                        </button>
                     </article>
 
                     <article class="card project-card">
                         <span class="project-number" aria-hidden="true">02</span>
-                        <span class="project-type">Apprentissage automatique</span>
+
+                        <span class="project-type">
+                            Apprentissage automatique
+                        </span>
+
                         <h3>Détection de fraude</h3>
+
                         <p>
-                            Un projet de classification de transactions
-                            pour identifier des fraudes à partir de données.
+                            Un projet de classification pour identifier des
+                            transactions frauduleuses dans des données
+                            déséquilibrées.
                         </p>
+
                         <p>
-                            <strong>Travail réalisé :</strong>
+                            <strong>Axes de travail :</strong>
                             préparation des données, comparaison de modèles
-                            et analyse de leurs performances.
+                            et analyse des performances.
                         </p>
-                        <ul class="tags" aria-label="Technologies du projet de fraude">
+
+                        <ul class="tags">
                             <li>Python</li>
                             <li>Scikit-learn</li>
-                            <li>Pandas</li>
+                            <li>Classification</li>
                         </ul>
+
+                        <button
+                            class="button"
+                            type="button"
+                            data-open="projet-fraude">
+                            Découvrir le projet ↗
+                        </button>
                     </article>
 
                     <article class="card project-card">
                         <span class="project-number" aria-hidden="true">03</span>
-                        <span class="project-type">Création interactive</span>
-                        <h3>Projets Unity</h3>
+
+                        <span class="project-type">
+                            Création interactive
+                        </span>
+
+                        <h3>Projet Unity</h3>
+
                         <p>
-                            Des projets scolaires pour explorer la création
-                            de jeux et d’environnements interactifs.
+                            Un espace pour présenter un jeu ou une expérience
+                            interactive réalisée pendant ma formation.
                         </p>
+
                         <p>
-                            <strong>Compétences pratiquées :</strong>
-                            programmation de comportements et gestion
-                            des interactions dans Unity.
+                            <strong>À personnaliser :</strong>
+                            le nom du projet, son concept et les éléments
+                            que j’ai personnellement développés.
                         </p>
-                        <ul class="tags" aria-label="Technologies des projets Unity">
+
+                        <ul class="tags">
                             <li>Unity</li>
                             <li>C#</li>
                             <li>2D / 3D</li>
                         </ul>
+
+                        <button
+                            class="button"
+                            type="button"
+                            data-open="projet-unity">
+                            Découvrir le projet ↗
+                        </button>
                     </article>
                 </div>
             </section>
 
-            <section id="contact" aria-labelledby="titre-contact">
+            <!-- CONTACT -->
+
+            <section id="contact">
                 <div class="contact-box">
                     <p class="eyebrow">Et si on échangeait ?</p>
-                    <h2 id="titre-contact">Construire la suite, ensemble.</h2>
-                    <p>
-                        Pour discuter d’un stage ou découvrir mon travail,
-                        retrouvez-moi sur GitHub.
+
+                    <h2>Parlons de votre prochain projet.</h2>
+
+                    <p class="contact-intro">
+                        Vous recherchez une stagiaire en informatique ?
+                        Je serais heureuse d’échanger avec vous sur vos besoins
+                        et de vous présenter mes réalisations.
                     </p>
-                    <div class="buttons">
-                        <a class="button" href="https://github.com/NikitaSilue">
-                            Mon profil GitHub
-                        </a>
+
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <span class="contact-label">
+                                Courriel professionnel
+                            </span>
+
+                            <!--
+                                Remplace ce paragraphe par :
+                                <a href="mailto:TON_ADRESSE">
+                                    TON_ADRESSE
+                                </a>
+                            -->
+
+                            <p>[Ton adresse courriel professionnelle]</p>
+                        </div>
+
+                        <div class="contact-item">
+                            <span class="contact-label">LinkedIn</span>
+
+                            <!--
+                                Remplace ce paragraphe par :
+                                <a href="TON_LIEN_LINKEDIN"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    Consulter mon profil LinkedIn ↗
+                                </a>
+                            -->
+
+                            <p>[Lien vers ton profil LinkedIn]</p>
+                        </div>
+
+                        <div class="contact-item">
+                            <span class="contact-label">GitHub</span>
+
+                            <a
+                                href="https://github.com/NikitaSilue"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                github.com/NikitaSilue ↗
+                            </a>
+                        </div>
+
+                        <div class="contact-item">
+                            <span class="contact-label">
+                                Localisation et disponibilité
+                            </span>
+
+                            <p>
+                                Trois-Rivières, Québec<br>
+                                [Dates du stage]<br>
+                                [Présentiel, hybride ou à distance]
+                            </p>
+                        </div>
                     </div>
+
+                    <div class="buttons">
+                        <a
+                            class="button"
+                            href="https://github.com/NikitaSilue"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            Consulter mon GitHub ↗
+                        </a>
+
+                        <!--
+                            Quand ton CV sera ajouté dans le dépôt,
+                            remplace le texte ci-dessous par :
+
+                            <a class="button secondary"
+                               href="CV-Nikita-Silue.pdf"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                Consulter mon CV
+                            </a>
+                        -->
+
+                        <span class="pending">CV PDF · À ajouter</span>
+                        <span class="pending">Courriel · À configurer</span>
+                    </div>
+
+                    <p class="preview-note">
+                        Aperçu à valider : les coordonnées, le CV, les captures
+                        et les liens des projets seront remplacés par tes vrais
+                        éléments avant publication.
+                    </p>
                 </div>
             </section>
         </div>
@@ -630,5 +957,396 @@
             © 2026 Nikita Silue · Portfolio
         </div>
     </footer>
+
+    <!-- FICHE DÉTAILLÉE : PROJETCITOYENS -->
+
+    <dialog
+        id="projet-citoyens"
+        aria-labelledby="titre-citoyens">
+
+        <div class="dialog-content">
+            <div class="dialog-top">
+                <button class="close-button" type="button" data-close>
+                    Fermer ✕
+                </button>
+            </div>
+
+            <p class="eyebrow">Application Web · Projet en équipe</p>
+            <h2 id="titre-citoyens">ProjetCitoyens</h2>
+
+            <p class="project-meta">
+                Blazor · C# / .NET · MySQL · HTML / CSS<br>
+                Équipe : [à préciser] · Période : [à préciser]
+            </p>
+
+            <h3>Le besoin</h3>
+
+            <p>
+                Permettre aux citoyens de découvrir les activités proposées
+                et de s’y inscrire. Fournir aux administrateurs une interface
+                pour créer, modifier et gérer les activités.
+            </p>
+
+            <h3>Les fonctionnalités du projet</h3>
+
+            <ul class="project-list">
+                <li>
+                    Consultation des activités avec leur description,
+                    leur date, leur lieu et leur capacité.
+                </li>
+                <li>Inscription des citoyens aux activités.</li>
+                <li>
+                    Création et modification des activités depuis
+                    un espace d’administration.
+                </li>
+                <li>Consultation des personnes inscrites.</li>
+            </ul>
+
+            <h3>Ma contribution personnelle</h3>
+
+            <p>
+                Mon rôle portait principalement sur les interfaces
+                et l’expérience utilisateur.
+            </p>
+
+            <ul class="project-list">
+                <li>
+                    Amélioration de la présentation de la page d’accueil.
+                </li>
+                <li>
+                    Adaptation des cartes d’activités aux petits écrans.
+                </li>
+                <li>
+                    Amélioration visuelle des pages d’administration
+                    et des formulaires.
+                </li>
+                <li>Application des normes graphiques du projet.</li>
+                <li>
+                    Intégration de mes modifications avec Git et GitHub.
+                </li>
+            </ul>
+
+            <h3>Un défi rencontré</h3>
+
+            <p>
+                Présenter les informations des activités de manière lisible
+                sur ordinateur et sur téléphone. J’ai travaillé sur la
+                disposition des cartes et l’adaptation du CSS selon
+                la taille de l’écran.
+            </p>
+
+            <h3>Aperçu du projet</h3>
+
+            <div class="screenshots">
+                <!--
+                    Pour ajouter une vraie capture, remplace un bloc par :
+                    <img src="images/accueil-citoyens.png"
+                         alt="Page d’accueil de ProjetCitoyens"
+                         style="width:100%;border-radius:16px;">
+                -->
+
+                <div class="image-placeholder">
+                    Capture à ajouter<br>
+                    Page d’accueil
+                </div>
+
+                <div class="image-placeholder">
+                    Capture à ajouter<br>
+                    Espace administrateur
+                </div>
+            </div>
+
+            <h3>Consulter le projet</h3>
+
+            <p>
+                Les liens vers le code et la démonstration seront ajoutés ici.
+            </p>
+
+            <div class="buttons">
+                <!--
+                    Exemple de vrai bouton à activer avec ton lien :
+
+                    <a class="button"
+                       href="LIEN_REEL_DU_DEPOT"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Consulter le code ↗
+                    </a>
+                -->
+
+                <span class="pending">
+                    Dépôt GitHub · Lien à fournir
+                </span>
+
+                <span class="pending">
+                    Démonstration vidéo · À ajouter
+                </span>
+
+                <span class="pending">
+                    Application en ligne · Si disponible
+                </span>
+            </div>
+
+            <p class="preview-note">
+                Description proposée à valider : préciser la période,
+                l’état des fonctionnalités et ta contribution exacte.
+            </p>
+        </div>
+    </dialog>
+
+    <!-- FICHE DÉTAILLÉE : FRAUDE -->
+
+    <dialog
+        id="projet-fraude"
+        aria-labelledby="titre-fraude">
+
+        <div class="dialog-content">
+            <div class="dialog-top">
+                <button class="close-button" type="button" data-close>
+                    Fermer ✕
+                </button>
+            </div>
+
+            <p class="eyebrow">Données · Apprentissage automatique</p>
+            <h2 id="titre-fraude">Détection de fraude</h2>
+
+            <p class="project-meta">
+                Python · Scikit-learn · Classification<br>
+                Contexte : [individuel ou équipe] · Période : [à préciser]
+            </p>
+
+            <h3>Le besoin</h3>
+
+            <p>
+                Étudier comment des modèles d’apprentissage automatique
+                peuvent repérer des transactions frauduleuses dans
+                un ensemble de données où les fraudes sont peu nombreuses.
+            </p>
+
+            <h3>La démarche du projet</h3>
+
+            <ol class="project-list">
+                <li>
+                    Explorer les données et observer la répartition
+                    des transactions normales et frauduleuses.
+                </li>
+                <li>
+                    Préparer les variables pour les modèles.
+                </li>
+                <li>
+                    Traiter le déséquilibre des classes dans les données
+                    d’entraînement.
+                </li>
+                <li>
+                    Comparer plusieurs algorithmes de classification.
+                </li>
+                <li>
+                    Examiner la précision, le rappel, le score F1
+                    et les matrices de confusion.
+                </li>
+            </ol>
+
+            <h3>Les modèles étudiés</h3>
+
+            <ul class="tags">
+                <li>KNN</li>
+                <li>Régression logistique</li>
+                <li>Arbre de décision</li>
+                <li>Forêt aléatoire</li>
+                <li>Gradient Boosting</li>
+            </ul>
+
+            <p>
+                Liste à confirmer avec le contenu du rapport final.
+            </p>
+
+            <h3>Ma contribution personnelle</h3>
+
+            <p>
+                [Préciser les étapes que tu as personnellement réalisées
+                et la répartition du travail si le projet était collectif.]
+            </p>
+
+            <h3>Résultats et limites</h3>
+
+            <div class="result-box">
+                <strong>Résultats à compléter avec les valeurs vérifiées</strong>
+
+                <p>
+                    Modèle retenu : [nom du modèle]<br>
+                    Rappel : [valeur]<br>
+                    Précision : [valeur]<br>
+                    Score F1 : [valeur]<br>
+                    Méthode d’évaluation : [à préciser]
+                </p>
+            </div>
+
+            <p>
+                Le rappel permet d’examiner la proportion des fraudes détectées.
+                Les faux positifs et les limites du jeu de données doivent
+                également être pris en compte.
+            </p>
+
+            <h3>Aperçu du travail</h3>
+
+            <div class="screenshots">
+                <div class="image-placeholder">
+                    Graphique à ajouter<br>
+                    Comparaison des modèles
+                </div>
+
+                <div class="image-placeholder">
+                    Figure à ajouter<br>
+                    Matrice de confusion
+                </div>
+            </div>
+
+            <h3>Consulter le projet</h3>
+
+            <div class="buttons">
+                <span class="pending">
+                    Code GitHub · Lien à fournir
+                </span>
+
+                <span class="pending">
+                    Notebook · À ajouter
+                </span>
+
+                <span class="pending">
+                    Rapport PDF · À ajouter
+                </span>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- FICHE DÉTAILLÉE : UNITY -->
+
+    <dialog
+        id="projet-unity"
+        aria-labelledby="titre-unity">
+
+        <div class="dialog-content">
+            <div class="dialog-top">
+                <button class="close-button" type="button" data-close>
+                    Fermer ✕
+                </button>
+            </div>
+
+            <p class="eyebrow">Création interactive · Unity</p>
+            <h2 id="titre-unity">[Nom de ton projet Unity]</h2>
+
+            <p class="project-meta">
+                Unity · C# · [2D ou 3D]<br>
+                Contexte : [individuel ou équipe] · Période : [à préciser]
+            </p>
+
+            <h3>Le concept</h3>
+
+            <p>
+                [Présenter le jeu, l’objectif du joueur et l’environnement
+                en deux ou trois phrases.]
+            </p>
+
+            <h3>Les mécaniques principales</h3>
+
+            <ul class="project-list">
+                <li>[Première mécanique du jeu]</li>
+                <li>[Deuxième mécanique du jeu]</li>
+                <li>[Troisième mécanique du jeu]</li>
+            </ul>
+
+            <h3>Ma contribution personnelle</h3>
+
+            <p>
+                [Décrire les scripts, interactions, niveaux ou éléments
+                que tu as personnellement réalisés.]
+            </p>
+
+            <h3>Un défi technique</h3>
+
+            <p>
+                [Expliquer un problème concret rencontré, la solution
+                mise en place et ce que tu as appris.]
+            </p>
+
+            <h3>Aperçu du projet</h3>
+
+            <div class="screenshots">
+                <div class="image-placeholder">
+                    Capture à ajouter<br>
+                    Vue du jeu
+                </div>
+
+                <div class="image-placeholder">
+                    Capture à ajouter<br>
+                    Interaction principale
+                </div>
+            </div>
+
+            <h3>Consulter le projet</h3>
+
+            <div class="buttons">
+                <span class="pending">
+                    Vidéo de gameplay · À ajouter
+                </span>
+
+                <span class="pending">
+                    Code GitHub · Lien à fournir
+                </span>
+
+                <span class="pending">
+                    Version jouable · Si disponible
+                </span>
+            </div>
+        </div>
+    </dialog>
+
+    <script>
+        // Ouvrir la fiche correspondant au projet sélectionné.
+        const projectButtons = document.querySelectorAll("[data-open]");
+
+        projectButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const dialogId = button.dataset.open;
+                const dialog = document.getElementById(dialogId);
+
+                if (dialog) {
+                    dialog.showModal();
+                }
+            });
+        });
+
+        // Fermer une fiche avec son bouton.
+        const closeButtons = document.querySelectorAll("[data-close]");
+
+        closeButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                button.closest("dialog").close();
+            });
+        });
+
+        // Fermer une fiche en cliquant à l'extérieur.
+        const dialogs = document.querySelectorAll("dialog");
+
+        dialogs.forEach((dialog) => {
+            dialog.addEventListener("click", (event) => {
+                if (event.target !== dialog) {
+                    return;
+                }
+
+                const bounds = dialog.getBoundingClientRect();
+
+                const clickedOutside =
+                    event.clientX < bounds.left ||
+                    event.clientX > bounds.right ||
+                    event.clientY < bounds.top ||
+                    event.clientY > bounds.bottom;
+
+                if (clickedOutside) {
+                    dialog.close();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
