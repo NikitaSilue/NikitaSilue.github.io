@@ -539,6 +539,33 @@
                 transform: none;
             }
         }
+
+        .screenshots {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.screenshots .screenshot {
+    display: block;
+    overflow: hidden;
+    border: 1px dashed #C59F99;
+    border-radius: 16px;
+    background: #EFE4D8;
+}
+
+.screenshots .screenshot img {
+    display: block;
+    width: 100%;
+    height: 170px;
+    object-fit: contain;
+}
+
+@media (max-width: 600px) {
+    .screenshots {
+        grid-template-columns: 1fr;
+    }
+}
     </style>
 </head>
 
@@ -952,7 +979,9 @@
         </div>
     </footer>
 
-    <!-- FICHE DÉTAILLÉE : PROJETCITOYENS -->
+    
+
+    <!-- FICHE DÉTAILLÉE : PROJETCITOYENS -->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     <dialog
         id="projet-citoyens"
@@ -970,7 +999,7 @@
 
             <p class="project-meta">
                 Blazor · C# / .NET · MySQL · HTML / CSS<br>
-                Équipe : [à préciser] · Période : [à préciser]
+                Équipe de 4 personnes · Période : Session d'Automne 2026
             </p>
 
             <h3>Le besoin</h3>
@@ -979,6 +1008,8 @@
                 Permettre aux citoyens de découvrir les activités proposées
                 et de s’y inscrire. Fournir aux administrateurs une interface
                 pour créer, modifier et gérer les activités.
+
+              
             </p>
 
             <h3>Les fonctionnalités du projet</h3>
@@ -1005,7 +1036,7 @@
 
             <ul class="project-list">
                 <li>
-                    Amélioration de la présentation de la page d’accueil.
+                    Amélioration de la présentation des pages.
                 </li>
                 <li>
                     Adaptation des cartes d’activités aux petits écrans.
@@ -1014,7 +1045,7 @@
                     Amélioration visuelle des pages d’administration
                     et des formulaires.
                 </li>
-                <li>Application des normes graphiques du projet.</li>
+                <li>Application des normes graphiques de la ville de Trois-Rivières au projet.</li>
                 <li>
                     Intégration de mes modifications avec Git et GitHub.
                 </li>
@@ -1026,199 +1057,159 @@
                 Présenter les informations des activités de manière lisible
                 sur ordinateur et sur téléphone. J’ai travaillé sur la
                 disposition des cartes et l’adaptation du CSS selon
-                la taille de l’écran.
+                la taille de l’écran et en fonction des normes de la ville de Trois-Rivières.
             </p>
 
             <h3>Aperçu du projet</h3>
 
-        <div class="screenshots">
-            <a
-                href="./Accueil-citoyens.png"
-                target="_blank"
-                rel="noopener noreferrer">
-                <img
-                    class="project-image"
-                    src="./citoyens-accueil.png"
-                    alt="Page d’accueil de ProjetCitoyens présentant les activités"
-                    loading="lazy">
+       <div class="screenshots">
+            <a class="screenshot" href="./projetcitoyens-accueil.png">
+                <img src="./Acceuil-citoyens.png"
+                 alt="Page d’accueil de ProjetCitoyens présentant les activités">
             </a>
-        
-            <a
-                href="./citoyens-admin.png"
-                target="_blank"
-                rel="noopener noreferrer">
-                <img
-                    class="project-image"
-                    src="./citoyens-admin.png"
-                    alt="Espace d’administration de ProjetCitoyens"
-                    loading="lazy">
+
+            <a class="screenshot" href="./images/projetcitoyens-admin.png">
+                <img src="./Acceuil2.png"
+                 alt="Espace d’administration de ProjetCitoyens">
             </a>
         </div>
 
-            <h3>Consulter le projet</h3>
+            <h3>Consulter le projet sur GitHub</h3>
 
-            <p>
-                Les liens vers le code et la démonstration seront ajoutés ici.
-            </p>
 
             <div class="buttons">
-                <!--
-                    Exemple de vrai bouton à activer avec ton lien :
+
 
                     <a class="button"
-                       href="LIEN_REEL_DU_DEPOT"
+                       href="https://github.com/Khaya01/ProjetCitoyens.git"
                        target="_blank"
                        rel="noopener noreferrer">
-                        Consulter le code ↗
+                        Consulter le code sur GitHub ↗
                     </a>
-                -->
+            
 
                 <span class="pending">
-                    Dépôt GitHub · Lien à fournir
+                    https://github.com/Khaya01/ProjetCitoyens.git
                 </span>
 
-                <span class="pending">
-                    Démonstration vidéo · À ajouter
-                </span>
 
-                <span class="pending">
-                    Application en ligne · Si disponible
-                </span>
             </div>
 
             <p class="preview-note">
-                Description proposée à valider : préciser la période,
-                l’état des fonctionnalités et ta contribution exacte.
+              Le projet n'est pas encore terminer vue qu nous sommes encore dans la session d'Automne.
             </p>
         </div>
     </dialog>
 
-    <!-- FICHE DÉTAILLÉE : FRAUDE -->
+  <!-- Fiche détaillée du projet de détection de fraude -->
+<dialog id="projet-fraude" aria-labelledby="titre-fraude">
+    <div class="dialog-content">
+        <div class="dialog-top">
+            <button class="close-button" type="button" data-close>
+                Fermer ✕
+            </button>
+        </div>
 
-    <dialog
-        id="projet-fraude"
-        aria-labelledby="titre-fraude">
+        <p class="eyebrow">Données · Apprentissage automatique</p>
+        <h2 id="titre-fraude">Détection de fraude bancaire</h2>
 
-        <div class="dialog-content">
-            <div class="dialog-top">
-                <button class="close-button" type="button" data-close>
-                    Fermer ✕
-                </button>
+        <p class="project-meta">
+            Python · pandas · NumPy · scikit-learn · imbalanced-learn<br>
+            Projet individuel de session · Avril à mai 2026
+        </p>
+
+        <h3>Le défi</h3>
+
+        <p>
+            Repérer les transactions frauduleuses dans un jeu de données
+            où elles sont rares. Un modèle peut obtenir un taux de bonnes
+            prédictions élevé tout en laissant passer beaucoup de fraudes.
+            J’ai donc examiné le rappel et la précision de la classe fraude
+            pour distinguer les fraudes manquées des fausses alertes.
+        </p>
+
+        <h3>Ce que j’ai réalisé</h3>
+
+        <ol class="project-list">
+            <li>
+                J’ai tiré un échantillon de 50&nbsp;000 transactions pour
+                réduire le temps de calcul et visualisé la répartition
+                des classes ainsi que les montants atypiques.
+            </li>
+            <li>
+                J’ai encodé les variables catégorielles, standardisé les
+                variables et utilisé une ACP à deux dimensions pour explorer
+                visuellement la séparation entre les classes.
+            </li>
+            <li>
+                J’ai utilisé une division stratifiée de 75&nbsp;% pour
+                l’entraînement et de 25&nbsp;% pour le test. J’ai appliqué
+                SMOTE uniquement aux données d’entraînement pour augmenter
+                la représentation des fraudes.
+            </li>
+            <li>
+                J’ai entraîné quatre modèles avec scikit-learn et programmé
+                deux classificateurs en Python avec NumPy, le KNN et le
+                Bayes naïf gaussien.
+            </li>
+        </ol>
+
+        <h3>Les six modèles évalués</h3>
+
+        <ul class="tags">
+            <li>Gradient Boosting</li>
+            <li>Régression logistique</li>
+            <li>Arbre de décision</li>
+            <li>Forêt aléatoire</li>
+            <li>KNN codé à la main</li>
+            <li>Bayes naïf gaussien codé à la main</li>
+        </ul>
+
+        <h3>Évaluation et limites</h3>
+
+        <div class="result-box">
+            <strong>Tableau comparatif et matrices de confusion</strong>
+
+            <p>
+                Mon script produit un tableau qui regroupe le taux de bonnes
+                prédictions, la précision, le rappel, le score F1 et le temps
+                d’exécution. Les matrices de confusion permettent de voir
+                combien de fraudes ont été détectées ou manquées et combien
+                de transactions normales ont déclenché une fausse alerte.
+            </p>
+        </div>
+
+        <p>
+            Pour limiter le temps de calcul, j’ai évalué le KNN maison sur
+            1&nbsp;000 transactions de test et le Bayes naïf maison sur
+            2&nbsp;000. Les quatre modèles scikit-learn ont été évalués sur
+            les 12&nbsp;500 transactions du jeu de test. Cette différence
+            limite la comparaison directe des scores.
+        </p>
+
+        <p>
+            L’encodage et la standardisation ont été ajustés avant la
+            séparation des données. Pour rendre l’évaluation plus rigoureuse,
+            j’ajusterais ces transformations uniquement sur les données
+            d’entraînement et j’évaluerais les six modèles sur le même jeu de test.
+        </p>
+
+        <h3>Aperçu du travail</h3>
+
+        <div class="screenshots">
+            <div class="image-placeholder">
+                Comparaison des scores F1<br>
+                Graphique produit par le script
             </div>
 
-            <p class="eyebrow">Données · Apprentissage automatique</p>
-            <h2 id="titre-fraude">Détection de fraude</h2>
-
-            <p class="project-meta">
-                Python · Scikit-learn · Classification<br>
-                Contexte : [individuel ou équipe] · Période : [à préciser]
-            </p>
-
-            <h3>Le besoin</h3>
-
-            <p>
-                Étudier comment des modèles d’apprentissage automatique
-                peuvent repérer des transactions frauduleuses dans
-                un ensemble de données où les fraudes sont peu nombreuses.
-            </p>
-
-            <h3>La démarche du projet</h3>
-
-            <ol class="project-list">
-                <li>
-                    Explorer les données et observer la répartition
-                    des transactions normales et frauduleuses.
-                </li>
-                <li>
-                    Préparer les variables pour les modèles.
-                </li>
-                <li>
-                    Traiter le déséquilibre des classes dans les données
-                    d’entraînement.
-                </li>
-                <li>
-                    Comparer plusieurs algorithmes de classification.
-                </li>
-                <li>
-                    Examiner la précision, le rappel, le score F1
-                    et les matrices de confusion.
-                </li>
-            </ol>
-
-            <h3>Les modèles étudiés</h3>
-
-            <ul class="tags">
-                <li>KNN</li>
-                <li>Régression logistique</li>
-                <li>Arbre de décision</li>
-                <li>Forêt aléatoire</li>
-                <li>Gradient Boosting</li>
-            </ul>
-
-            <p>
-                Liste à confirmer avec le contenu du rapport final.
-            </p>
-
-            <h3>Ma contribution personnelle</h3>
-
-            <p>
-                [Préciser les étapes que tu as personnellement réalisées
-                et la répartition du travail si le projet était collectif.]
-            </p>
-
-            <h3>Résultats et limites</h3>
-
-            <div class="result-box">
-                <strong>Résultats à compléter avec les valeurs vérifiées</strong>
-
-                <p>
-                    Modèle retenu : [nom du modèle]<br>
-                    Rappel : [valeur]<br>
-                    Précision : [valeur]<br>
-                    Score F1 : [valeur]<br>
-                    Méthode d’évaluation : [à préciser]
-                </p>
-            </div>
-
-            <p>
-                Le rappel permet d’examiner la proportion des fraudes détectées.
-                Les faux positifs et les limites du jeu de données doivent
-                également être pris en compte.
-            </p>
-
-            <h3>Aperçu du travail</h3>
-
-            <div class="screenshots">
-                <div class="image-placeholder">
-                    Graphique à ajouter<br>
-                    Comparaison des modèles
-                </div>
-
-                <div class="image-placeholder">
-                    Figure à ajouter<br>
-                    Matrice de confusion
-                </div>
-            </div>
-
-            <h3>Consulter le projet</h3>
-
-            <div class="buttons">
-                <span class="pending">
-                    Code GitHub · Lien à fournir
-                </span>
-
-                <span class="pending">
-                    Notebook · À ajouter
-                </span>
-
-                <span class="pending">
-                    Rapport PDF · À ajouter
-                </span>
+            <div class="image-placeholder">
+                Matrice de confusion<br>
+                Fraudes détectées, fraudes manquées et fausses alertes
             </div>
         </div>
-    </dialog>
-
-    <!-- FICHE DÉTAILLÉE : UNITY -->
+    </div>
+</dialog>
+    <!-- FICHE DÉTAILLÉE : PULSE -->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     <dialog
         id="projet-unity"
